@@ -1,0 +1,45 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>LCM Calculator</title>
+<style>
+body { font-family: Arial; text-align: center; padding: 50px; background: #f0f8ff; }
+input { padding: 8px; width: 100px; margin: 5px; border-radius: 5px; border: 1px solid #ccc; }
+button { padding: 10px 20px; border: none; border-radius: 5px; background-color: #4CAF50; color: white; cursor: pointer; }
+button:hover { background-color: #45a049; }
+#result { margin-top: 20px; font-weight: bold; color: #d35400; }
+h2 { color: #2c3e50; }
+</style>
+</head>
+<body>
+
+<h2>LCM कॅल्क्युलेटर</h2>
+
+पहिला नंबर: <input type="number" id="num1"><br>
+दुसरा नंबर: <input type="number" id="num2"><br><br>
+<button onclick="calculateLCM()">LCM काढा</button>
+
+<p id="result"></p>
+
+<script>
+function gcd(a,b){
+    while(b!=0){ let t=b; b=a%b; a=t; }
+    return a;
+}
+
+function calculateLCM(){
+    let a=parseInt(document.getElementById('num1').value);
+    let b=parseInt(document.getElementById('num2').value);
+    if(isNaN(a)||isNaN(b)){
+        document.getElementById('result').innerText="कृपया दोन्ही नंबर टाका!";
+        return;
+    }
+    let lcm=(a*b)/gcd(a,b);
+    document.getElementById('result').innerText=a + " आणि " + b + " चा LCM आहे: " + lcm;
+}
+</script>
+
+</body>
+</html>
